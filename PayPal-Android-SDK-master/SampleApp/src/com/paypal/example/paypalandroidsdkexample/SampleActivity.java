@@ -20,6 +20,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 
 import org.json.JSONException;
 
@@ -28,6 +30,11 @@ import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+
+import nxr.tpad.lib.TPad;
+import nxr.tpad.lib.TPadImpl;
+import nxr.tpad.lib.views.FrictionMapView;
+
 
 /**
  * Basic sample using the SDK to make a payment or consent to future payments.
