@@ -29,6 +29,8 @@
 
 package com.example.fullscreentexture;
 
+import java.math.BigDecimal;
+
 import com.paypal.android.sdk.payments.PayPalAuthorization;
 import com.paypal.android.sdk.payments.PayPalConfiguration;
 import com.paypal.android.sdk.payments.PayPalFuturePaymentActivity;
@@ -102,6 +104,10 @@ public class FullscreenTextureActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		Intent intent = new Intent(this, PayPalService.class);
+		intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
+		startService(intent);
 		
 		// Set the content of the screen to the .xml file that is in the layout folder
 		setContentView(R.layout.activity_hello_tpad);
@@ -125,6 +131,17 @@ public class FullscreenTextureActivity extends Activity {
 	
 	public void onBuyPressed(View pressed){
 		
+        PayPalPayment thingToBuy = getThingToBuy(PayPalPayment.PAYMENT_INTENT_SALE);
+        Intent intent = new Intent(FullscreenTextureActivity.this, PaymentActivity.class);
+        intent.putExtra(PaymentActivity.EXTRA_PAYMENT, thingToBuy);
+        startActivityForResult(intent, REQUEST_CODE_PAYMENT);
+        
+        
+	}
+	
+	private PayPalPayment getThingToBuy(String paymentIntent) {
+		return new PayPalPayment(new BigDecimal("1.75"), "USD",
+				"hipster jeans", paymentIntent);
 	}
 
 	@Override
