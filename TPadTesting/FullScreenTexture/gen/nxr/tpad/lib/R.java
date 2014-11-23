@@ -8,7 +8,7 @@ package nxr.tpad.lib;
 
 public final class R {
 	public static final class drawable {
-		public static final int ic_launcher = 0x7f020002;
+		public static final int ic_launcher = 0x7f020003;
 	}
 	public static final class xml {
 		public static final int accessory_filter = 0x7f040000;

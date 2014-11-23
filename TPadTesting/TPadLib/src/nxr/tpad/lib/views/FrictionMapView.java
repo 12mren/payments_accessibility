@@ -184,16 +184,40 @@ public class FrictionMapView extends View {
 				y = 0;
 
 			friction = pixelToFriction(dataBitmap.getPixel(x, y));
-
+			if(friction == 100)	{
+				for(int j=1; j<10; j++){
+					if (i+j*dataBitmap.getWidth()<predictedPixels.length)
+					{
+						predictedPixels[i+dataBitmap.getWidth()]=100;
+					}
+					if (i+j<predictedPixels.length)
+					{
+						predictedPixels[i+j]=100;
+					}
+					if(i-j>0)
+					{
+						predictedPixels[i-j]=100;
+					}
+					if(i-j*dataBitmap.getWidth()>0)
+					{
+						predictedPixels[i-j*dataBitmap.getWidth()]=100;
+					}
+				}
+				
+			}
+			
 			predictedPixels[i] = friction;
 		}
 
 	}
 
 	private float pixelToFriction(int pixel) {
-		float[] hsv = new float[3];
-		Color.colorToHSV(pixel, hsv);
-		return hsv[2];
+//		float[] hsv = new float[3];
+		
+		if (Color.red(pixel)>=40 && Color.red(pixel)<=80 && Color.blue(pixel)>=0 && Color.blue(pixel)<=20 && Color.green(pixel)>=225 && Color.green(pixel)<=265)
+			return 100;
+		return 0;
+//		return hsv[2];
 	}
 
 }
