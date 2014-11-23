@@ -89,6 +89,10 @@ public class SampleActivity extends Activity {
         // Load in the image stored in the drawables folder
         Bitmap defaultBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
 
+        
+        // Set the friction data bitmap to the test image
+        fricView.setDataBitmap(defaultBitmap);
+
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
         startService(intent);
