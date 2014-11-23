@@ -43,6 +43,8 @@ import nxr.tpad.lib.views.FrictionMapView;
  * https://github.com/paypal/rest-api-sdk-python/tree/master/samples/mobile_backend
  */
 public class SampleActivity extends Activity {
+    FrictionMapView fricView;
+    TPad mTpad;
     private static final String TAG = "paymentExample";
     /**
      * - Set to PaymentActivity.ENVIRONMENT_PRODUCTION to move real money.
@@ -74,6 +76,18 @@ public class SampleActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // Load new tpad object from TPad Implementation Library
+        mTpad = new TPadImpl(this);
+
+        // Link friction view to .xml file
+        fricView = (FrictionMapView) findViewById(R.id.view1);
+
+        // Link local tpad object to the FrictionMapView
+        fricView.setTpad(mTpad);
+
+        // Load in the image stored in the drawables folder
+        Bitmap defaultBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.demo);
 
         Intent intent = new Intent(this, PayPalService.class);
         intent.putExtra(PayPalService.EXTRA_PAYPAL_CONFIGURATION, config);
@@ -302,6 +316,7 @@ public class SampleActivity extends Activity {
     public void onDestroy() {
         // Stop service when done
         stopService(new Intent(this, PayPalService.class));
+        mTpad.disconnectTPad();
         super.onDestroy();
     }
 }

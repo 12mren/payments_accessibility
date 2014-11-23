@@ -47,6 +47,11 @@
            android:layout_marginTop="20dp"
            android:onClick="onProfileSharingPressed"
            android:text="Profile Sharing Consent" />
+
+        <nxr.tpad.lib.views.FrictionMapView
+          android:id="@+id/view1"
+          android:layout_width="match_parent"
+          android:layout_height="match_parent" />
    </LinearLayout>
 
 </RelativeLayout>
