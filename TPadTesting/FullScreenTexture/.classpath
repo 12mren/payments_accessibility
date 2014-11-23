@@ -5,5 +5,7 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="lib" path="C:/Users/Ali/Documents/GitHub/payments_accessibility/TPadTesting/PayPalAndroidSDK-2.7.1.jar" sourcepath="C:/Users/Ali/Documents/GitHub/payments_accessibility"/>
+	<classpathentry kind="lib" path="libs/PayPalAndroidSDK-2.7.1.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

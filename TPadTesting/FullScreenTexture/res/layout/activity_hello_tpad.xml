@@ -10,7 +10,13 @@
     tools:context=".FullscreenTextureActivity" >
 
  
-    
+    <Button 
+        android:id="@+id/buyIdBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="onBuyPressed"
+        android:text="Buy a Thing"/>"
     <nxr.tpad.lib.views.FrictionMapView
         android:id="@+id/view1"
         android:layout_width="match_parent"

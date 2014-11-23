@@ -5,8 +5,9 @@ int drawable demo 0x7f020000
 int drawable filter 0x7f020001
 int drawable ic_launcher 0x7f020002
 int drawable sixlayers 0x7f020003
-int id action_settings 0x7f090001
-int id view1 0x7f090000
+int id action_settings 0x7f090002
+int id buyIdBtn 0x7f090000
+int id view1 0x7f090001
 int layout activity_hello_tpad 0x7f030000
 int menu hello_tpad 0x7f080000
 int string action_settings 0x7f060001
